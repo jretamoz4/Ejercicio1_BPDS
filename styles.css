@@ -16,12 +16,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* --- CAMBIOS PARA EL FONDO DE COCINA --- */
-    background-color: #d8d8d8; /* Color de respaldo si la imagen no carga */
-    background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Nueva URL de la imagen de cocina */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center center; /* Centra la imagen */
-    background-attachment: fixed; /* Crea un efecto parallax al hacer scroll */
+    background-color: #d8d8d8;
+    background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 hr {
@@ -58,14 +57,38 @@ hr {
     margin: 0 auto;
 }
 
-/* --- Grilla de Recetas --- */
-.recipe-grid {
+/* --- Contenedor Principal y Secciones de Categoría --- */
+.recipe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 3rem 2rem;
+}
+
+.category-section {
+    margin-bottom: 4rem; /* Espacio entre categorías */
+}
+
+.category-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1.5rem;
+    display: inline-block; /* Permite que el fondo se ajuste al texto */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo para legibilidad */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 16px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Truco para centrar un elemento inline-block */
+}
+
+/* --- Grilla de Recetas (Ahora dentro de cada categoría) --- */
+.category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
-    padding: 2rem 2rem 3rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* --- Tarjetas de Receta (Estilo Apple) --- */
@@ -76,7 +99,6 @@ hr {
     overflow: hidden; 
     display: flex;
     flex-direction: column;
-
     max-height: 380px; 
     transition: 
         max-height 0.7s ease-in-out,
@@ -87,7 +109,6 @@ hr {
 .recipe-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
     max-height: 1200px; 
 }
 
@@ -142,7 +163,6 @@ hr {
     opacity: 1; 
 }
 
-
 /* --- Pie de Página --- */
 footer {
     text-align: center;
@@ -162,8 +182,11 @@ footer {
     .page-header h1 {
         font-size: 2rem;
     }
-    .recipe-grid {
+    .recipe-container {
         padding: 1.5rem 1rem 2rem 1rem;
+    }
+    .category-title {
+        font-size: 1.5rem;
     }
     .recipe-card, .recipe-card:hover {
         max-height: none;
