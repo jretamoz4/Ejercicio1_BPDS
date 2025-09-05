@@ -50,7 +50,6 @@ hr {
 /* --- Grilla de Recetas --- */
 .recipe-grid {
     display: grid;
-    /* Crea columnas flexibles que se adaptan al espacio disponible */
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
     padding: 0 2rem 3rem 2rem;
@@ -63,28 +62,38 @@ hr {
     background-color: var(--card-background);
     border-radius: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* MUY IMPORTANTE: Oculta el contenido que no cabe */
     display: flex;
     flex-direction: column;
+
+    /* --- ANIMACIÓN #1: Definimos la altura y la transición de la tarjeta --- */
+    max-height: 380px; /* Altura de la tarjeta 'colapsada' */
+    transition: 
+        max-height 0.7s ease-in-out, /* Transición para la altura */
+        transform 0.3s ease, 
+        box-shadow 0.3s ease;
 }
 
 .recipe-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    /* --- ANIMACIÓN #1 (Continuación): Expandimos la altura al pasar el cursor --- */
+    max-height: 1200px; /* Una altura suficientemente grande para mostrar todo */
 }
 
 .recipe-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    object-fit: cover;
     margin: 0;
     border-radius: 0;
+    flex-shrink: 0; /* Evita que la imagen se encoja */
 }
 
 .card-content {
     padding: 1.5rem;
-    flex-grow: 1; /* Permite que el contenido se expanda y ocupe el espacio */
+    flex-grow: 1;
 }
 
 .card-content h2 {
@@ -115,6 +124,17 @@ hr {
     margin-bottom: 0.5rem;
 }
 
+/* --- ANIMACIÓN #2: Ocultamos y revelamos los detalles de la receta --- */
+.card-content .section {
+    opacity: 0; /* Los detalles son invisibles por defecto */
+    transition: opacity 0.5s ease-in-out 0.2s; /* Transición para la opacidad, con un pequeño retraso */
+}
+
+.recipe-card:hover .card-content .section {
+    opacity: 1; /* Al pasar el cursor por la tarjeta, los detalles se hacen visibles */
+}
+
+
 /* --- Pie de Página --- */
 footer {
     text-align: center;
@@ -130,5 +150,12 @@ footer {
     }
     .recipe-grid {
         padding: 0 1rem 2rem 1rem;
+    }
+    /* En móviles, se desactiva la animación para mejorar la usabilidad y el rendimiento */
+    .recipe-card, .recipe-card:hover {
+        max-height: none;
+    }
+    .card-content .section {
+        opacity: 1;
     }
 }
