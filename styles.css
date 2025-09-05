@@ -1,0 +1,134 @@
+/* --- Variables y Estilos Globales --- */
+:root {
+    --background-color: #f5f5f7;
+    --card-background: #ffffff;
+    --text-primary: #1d1d1f;
+    --text-secondary: #515154;
+    --border-color: #e5e5e5;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 1.5rem 0;
+}
+
+/* --- Encabezado de la Página --- */
+.page-header {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.page-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* --- Grilla de Recetas --- */
+.recipe-grid {
+    display: grid;
+    /* Crea columnas flexibles que se adaptan al espacio disponible */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Tarjetas de Receta (Estilo Apple) --- */
+.recipe-card {
+    background-color: var(--card-background);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    margin: 0;
+    border-radius: 0;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Permite que el contenido se expanda y ocupe el espacio */
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-content ul,
+.card-content ol {
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.card-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #86868b;
+    font-size: 0.875rem;
+}
+
+/* --- Adaptación para pantallas pequeñas (móviles) --- */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .recipe-grid {
+        padding: 0 1rem 2rem 1rem;
+    }
+}
