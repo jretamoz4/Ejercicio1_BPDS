@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pasta Carbonara Auténtica - Recetas Claras</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <!-- Encabezado Principal: Navegación limpia y consistente -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Recetas Claras</a>
+            <nav class="main-nav">
+                <a href="#">Recetas</a>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal: La receta como pieza central -->
+    <main>
+        <article class="recipe-detail">
+            <!-- Encabezado de la Receta: Título impactante e imagen principal -->
+            <header class="recipe-header">
+                <div class="container">
+                    <h1>Pasta Carbonara Auténtica</h1>
+                    <p class="recipe-subtitle">Un clásico de Roma que celebra la simplicidad y la calidad de los ingredientes. Lista en menos de 30 minutos.</p>
+                    <img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un primer plano de un plato de pasta carbonara auténtica, cremosa y con trozos de guanciale crujiente.">
+                </div>
+            </header>
+
+            <!-- Cuerpo de la Receta: Ingredientes y pasos en un layout claro de dos columnas -->
+            <div class="recipe-content container">
+                
+                <!-- Columna de Ingredientes (Aside): Información rápida y concisa -->
+                <aside class="recipe-ingredients">
+                    <h2>Ingredientes</h2>
+                    <ul>
+                        <li>200g de Spaghetti</li>
+                        <li>100g de Guanciale (o panceta de alta calidad)</li>
+                        <li>2 yemas de huevo grandes</li>
+                        <li>30g de queso Pecorino Romano, rallado</li>
+                        <li>Pimienta negra recién molida</li>
+                        <li>Sal</li>
+                    </ul>
+                </aside>
+
+                <!-- Columna de Instrucciones (Section): El proceso paso a paso -->
+                <section class="recipe-instructions">
+                    <h2>Instrucciones</h2>
+                    <ol>
+                        <li>Corta el guanciale en cubos pequeños o tiras. En una sartén grande, cocínalo a fuego medio hasta que esté dorado y crujiente. Retira el guanciale de la sartén, pero deja la grasa derretida.</li>
+                        <li>Mientras tanto, cocina la pasta en una olla grande con agua hirviendo y sal, según las instrucciones del paquete, hasta que esté al dente.</li>
+                        <li>En un bol, bate las yemas de huevo con el queso Pecorino rallado y una generosa cantidad de pimienta negra hasta obtener una mezcla cremosa.</li>
+                        <li>Justo antes de que la pasta esté lista, reserva una taza del agua de cocción. Escurre la pasta y añádela inmediatamente a la sartén con la grasa del guanciale.</li>
+                        <li>Retira la sartén del fuego. Vierte la mezcla de huevo y queso sobre la pasta caliente, añadiendo un poco del agua de cocción reservada. Remueve enérgicamente para crear una salsa cremosa sin que el huevo se cuaje.</li>
+                        <li>Añade el guanciale crujiente, mezcla una última vez y sirve inmediatamente con un extra de queso Pecorino y pimienta negra por encima.</li>
+                    </ol>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Pie de Página: Cierre limpio y profesional -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Recetas Claras. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript para futuras interacciones -->
+    <script src="scripts.js"></script>
 </body>
 </html>
