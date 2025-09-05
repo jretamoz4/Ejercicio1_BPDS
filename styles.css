@@ -65,7 +65,7 @@ hr {
 }
 
 .category-section {
-    margin-bottom: 4rem; /* Espacio entre categorías */
+    margin-bottom: 4rem;
 }
 
 .category-title {
@@ -74,24 +74,24 @@ hr {
     text-align: center;
     margin-bottom: 2rem;
     padding: 0.5rem 1.5rem;
-    display: inline-block; /* Permite que el fondo se ajuste al texto */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo para legibilidad */
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 16px;
     position: relative;
     left: 50%;
-    transform: translateX(-50%); /* Truco para centrar un elemento inline-block */
+    transform: translateX(-50%);
 }
 
-/* --- Grilla de Recetas (Ahora dentro de cada categoría) --- */
+/* --- Grilla de Recetas --- */
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
 }
 
-/* --- Tarjetas de Receta (Estilo Apple) --- */
+/* --- Tarjetas de Receta --- */
 .recipe-card {
     background-color: var(--card-background);
     border-radius: 24px;
@@ -106,9 +106,14 @@ hr {
         box-shadow 0.3s ease;
 }
 
+/* CAMBIO: Efecto visual instantáneo al pasar el cursor */
 .recipe-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* CAMBIO: La expansión ahora es controlada por la clase .expanded */
+.recipe-card.expanded {
     max-height: 1200px; 
 }
 
@@ -159,7 +164,8 @@ hr {
     transition: opacity 0.5s ease-in-out 0.2s; 
 }
 
-.recipe-card:hover .card-content .section {
+/* CAMBIO: La aparición del texto también es controlada por .expanded */
+.recipe-card.expanded .card-content .section {
     opacity: 1; 
 }
 
