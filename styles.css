@@ -10,12 +10,18 @@
 
 body {
     font-family: var(--font-main);
-    background-color: var(--background-color);
     color: var(--text-primary);
     line-height: 1.5;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    /* --- CAMBIOS PARA EL FONDO DE COCINA --- */
+    background-color: #d8d8d8; /* Color de respaldo si la imagen no carga */
+    background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Nueva URL de la imagen de cocina */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* Crea un efecto parallax al hacer scroll */
 }
 
 hr {
@@ -30,7 +36,12 @@ hr {
     text-align: center;
     padding: 3rem 1.5rem;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 2rem auto 0 auto;
+
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
 }
 
 .page-header h1 {
@@ -52,7 +63,7 @@ hr {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
-    padding: 0 2rem 3rem 2rem;
+    padding: 2rem 2rem 3rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -62,14 +73,13 @@ hr {
     background-color: var(--card-background);
     border-radius: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden; /* MUY IMPORTANTE: Oculta el contenido que no cabe */
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
 
-    /* --- ANIMACIÓN #1: Definimos la altura y la transición de la tarjeta --- */
-    max-height: 380px; /* Altura de la tarjeta 'colapsada' */
+    max-height: 380px; 
     transition: 
-        max-height 0.7s ease-in-out, /* Transición para la altura */
+        max-height 0.7s ease-in-out,
         transform 0.3s ease, 
         box-shadow 0.3s ease;
 }
@@ -78,8 +88,7 @@ hr {
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
-    /* --- ANIMACIÓN #1 (Continuación): Expandimos la altura al pasar el cursor --- */
-    max-height: 1200px; /* Una altura suficientemente grande para mostrar todo */
+    max-height: 1200px; 
 }
 
 .recipe-card img {
@@ -88,7 +97,7 @@ hr {
     object-fit: cover;
     margin: 0;
     border-radius: 0;
-    flex-shrink: 0; /* Evita que la imagen se encoja */
+    flex-shrink: 0;
 }
 
 .card-content {
@@ -124,14 +133,13 @@ hr {
     margin-bottom: 0.5rem;
 }
 
-/* --- ANIMACIÓN #2: Ocultamos y revelamos los detalles de la receta --- */
 .card-content .section {
-    opacity: 0; /* Los detalles son invisibles por defecto */
-    transition: opacity 0.5s ease-in-out 0.2s; /* Transición para la opacidad, con un pequeño retraso */
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out 0.2s; 
 }
 
 .recipe-card:hover .card-content .section {
-    opacity: 1; /* Al pasar el cursor por la tarjeta, los detalles se hacen visibles */
+    opacity: 1; 
 }
 
 
@@ -139,19 +147,24 @@ hr {
 footer {
     text-align: center;
     padding: 2rem;
-    color: #86868b;
+    color: #1d1d1f;
     font-size: 0.875rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.7);
 }
 
 /* --- Adaptación para pantallas pequeñas (móviles) --- */
 @media (max-width: 768px) {
+    .page-header {
+        margin-top: 1rem;
+        padding: 2rem 1.5rem;
+    }
     .page-header h1 {
         font-size: 2rem;
     }
     .recipe-grid {
-        padding: 0 1rem 2rem 1rem;
+        padding: 1.5rem 1rem 2rem 1rem;
     }
-    /* En móviles, se desactiva la animación para mejorar la usabilidad y el rendimiento */
     .recipe-card, .recipe-card:hover {
         max-height: none;
     }
